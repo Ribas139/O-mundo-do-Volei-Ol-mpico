@@ -15,27 +15,25 @@
             line-height: 1.6;
         }
 
-        h1 {
+        h1, h2 {
             text-align: center;
-            color: #ffdc00;
-            margin-bottom: 10px;
             text-shadow: 2px 2px 4px #000;
             transition: color 0.3s ease;
             cursor: pointer;
         }
-        h1:hover {
-            color: #ffffff;
+
+        h1 {
+            color: #ffdc00;
+            margin-bottom: 10px;
         }
 
         h2 {
-            text-align: center;
             color: #7fdbff;
             margin-bottom: 30px;
-            transition: color 0.3s ease;
-            cursor: pointer;
         }
-        h2:hover {
-            color: #c0f9ff;
+
+        h1:hover, h2:hover {
+            color: #ffffff;
         }
 
         p {
@@ -47,28 +45,29 @@
         .video-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
             margin-bottom: 40px;
         }
 
         iframe {
             border: 3px solid #ffdc00;
             border-radius: 10px;
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            max-width: 500px;
+            height: 280px;
         }
 
-        /* Responsividade do vídeo */
         @media (max-width: 600px) {
             iframe {
-                width: 100%;
                 height: 200px;
             }
+
             p {
                 font-size: 16px;
             }
         }
 
-        /* Botão estilizado */
         button {
             display: block;
             margin: 0 auto 30px auto;
@@ -83,11 +82,11 @@
             box-shadow: 0 4px 10px rgba(255, 220, 0, 0.6);
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #e6c200;
         }
 
-        /* Texto extra escondido por padrão */
         #extra-info {
             max-width: 800px;
             margin: 0 auto 40px auto;
@@ -99,33 +98,52 @@
             background-color: rgba(255, 220, 0, 0.1);
             border-radius: 6px;
         }
+
+        section {
+            margin-bottom: 50px;
+        }
+
     </style>
 </head>
 <body>
     <h1>O Mundo do Voleibol Olímpico</h1>
     <h2>O vôlei é um dos esportes mais emocionantes e populares do mundo</h2>
 
-    <div class="video-container">
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/uQlrRQmt0po?si=1VTE7nae8wmsNnRM" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </div>
+    <section>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/uQlrRQmt0po?si=1VTE7nae8wmsNnRM" title="História do Vôlei"></iframe>
+        </div>
 
-    <p>
-        "Voleibol" refere-se ao esporte coletivo jogado com uma bola e uma rede, onde duas equipes de seis jogadores cada tentam marcar pontos ao fazer a bola tocar o chão do campo adversário. O vôlei é um esporte coletivo, praticado por duas equipes compostas por seis jogadores, com o objetivo de passar a bola por cima de uma rede para marcar pontos na quadra adversária. A principal característica do jogo é a alternância entre ataques e defesas, onde cada time tenta evitar que a bola toque no seu lado da quadra, ao mesmo tempo que busca marcar pontos.
-    </p>
+        <p>
+            "Voleibol" refere-se ao esporte coletivo jogado com uma bola e uma rede, onde duas equipes de seis jogadores cada tentam marcar pontos ao fazer a bola tocar o chão do campo adversário. A principal característica do jogo é a alternância entre ataques e defesas, exigindo técnica e precisão.
+        </p>
+    </section>
 
     <button id="toggle-info">Mostrar mais informações</button>
 
     <div id="extra-info">
         <p>
-            O vôlei foi criado em 1895 por William G. Morgan e é um esporte olímpico desde 1964. Existem diversas modalidades, incluindo o vôlei de praia, que é jogado em duplas e tem regras adaptadas para o ambiente externo. O esporte exige habilidades como coordenação, agilidade, força e trabalho em equipe. Grandes campeonatos mundiais e as Olimpíadas são momentos de destaque para fãs do esporte.
+            O vôlei foi criado em 1895 por William G. Morgan como uma alternativa ao basquete. Desde então, tornou-se um esporte olímpico, estreando nos Jogos de Tóquio em 1964. Hoje é praticado em todos os continentes, tanto em ambientes internos quanto em praias.
+        </p>
+        <p>
+            As principais posições no vôlei incluem: levantador, oposto, ponteiro, central e líbero. Cada jogador tem um papel estratégico, e a rotação é obrigatória após a conquista do saque.
+        </p>
+        <p>
+            No vôlei de praia, o jogo é disputado em duplas e com regras adaptadas ao ambiente de areia, como menor duração de sets e ausência do líbero.
+        </p>
+        <p>
+            Jogadas famosas como o "bloqueio", "saque viagem" e o "pancadão" tornaram-se marcas registradas de jogadores lendários como Giba, Serginho, Sheilla e Karch Kiraly.
         </p>
     </div>
+
+    <section>
+        <h2>Mais vídeos sobre Voleibol</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/YfLV5tLuq9o" title="Grandes jogadas de Vôlei"></iframe>
+            <iframe src="https://www.youtube.com/embed/0taKq6h5-cU" title="Técnicas de bloqueio no Vôlei"></iframe>
+            <iframe src="https://www.youtube.com/embed/SOmk-9-zyiE" title="Melhores momentos do Brasil nas Olimpíadas"></iframe>
+        </div>
+    </section>
 
     <script>
         const btn = document.getElementById('toggle-info');
