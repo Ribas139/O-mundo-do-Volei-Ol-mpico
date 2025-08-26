@@ -4,33 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>O Mundo do Voleibol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <style>
         body {
-            background-color: #001f3f; /* Azul escuro */
-            color: #00ffff; /* Ciano */
-            font-family: Arial, sans-serif;
+            background-color: #001f3f;
+            color: #00ffff;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
         }
 
         h1 {
             text-align: center;
-            color: #ffdc00; /* Amarelo */
+            color: #ffdc00;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px #000;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        h1:hover {
+            color: #ffffff;
         }
 
         h2 {
             text-align: center;
-            color: #7fdbff; /* Azul claro */
+            color: #7fdbff;
             margin-bottom: 30px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        h2:hover {
+            color: #c0f9ff;
         }
 
         p {
             max-width: 800px;
             margin: 0 auto 40px auto;
             font-size: 18px;
-            line-height: 1.6;
         }
 
         .video-container {
@@ -43,6 +54,50 @@
             border: 3px solid #ffdc00;
             border-radius: 10px;
             max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsividade do vídeo */
+        @media (max-width: 600px) {
+            iframe {
+                width: 100%;
+                height: 200px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+
+        /* Botão estilizado */
+        button {
+            display: block;
+            margin: 0 auto 30px auto;
+            background-color: #ffdc00;
+            border: none;
+            color: #001f3f;
+            font-weight: 700;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 220, 0, 0.6);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e6c200;
+        }
+
+        /* Texto extra escondido por padrão */
+        #extra-info {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 18px;
+            display: none;
+            color: #c0f9ff;
+            border-left: 4px solid #ffdc00;
+            padding-left: 15px;
+            background-color: rgba(255, 220, 0, 0.1);
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -63,5 +118,28 @@
     <p>
         "Voleibol" refere-se ao esporte coletivo jogado com uma bola e uma rede, onde duas equipes de seis jogadores cada tentam marcar pontos ao fazer a bola tocar o chão do campo adversário. O vôlei é um esporte coletivo, praticado por duas equipes compostas por seis jogadores, com o objetivo de passar a bola por cima de uma rede para marcar pontos na quadra adversária. A principal característica do jogo é a alternância entre ataques e defesas, onde cada time tenta evitar que a bola toque no seu lado da quadra, ao mesmo tempo que busca marcar pontos.
     </p>
+
+    <button id="toggle-info">Mostrar mais informações</button>
+
+    <div id="extra-info">
+        <p>
+            O vôlei foi criado em 1895 por William G. Morgan e é um esporte olímpico desde 1964. Existem diversas modalidades, incluindo o vôlei de praia, que é jogado em duplas e tem regras adaptadas para o ambiente externo. O esporte exige habilidades como coordenação, agilidade, força e trabalho em equipe. Grandes campeonatos mundiais e as Olimpíadas são momentos de destaque para fãs do esporte.
+        </p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('toggle-info');
+        const extraInfo = document.getElementById('extra-info');
+
+        btn.addEventListener('click', () => {
+            if (extraInfo.style.display === 'none' || extraInfo.style.display === '') {
+                extraInfo.style.display = 'block';
+                btn.textContent = 'Mostrar menos informações';
+            } else {
+                extraInfo.style.display = 'none';
+                btn.textContent = 'Mostrar mais informações';
+            }
+        });
+    </script>
 </body>
 </html>
